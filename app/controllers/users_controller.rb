@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
   def index
     @users = User.all.page(params[:page])
   end
@@ -28,8 +27,17 @@ class UsersController < ApplicationController
 
   private
 
-  #Strong Parameter
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end
