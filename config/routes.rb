@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       get :followings#/users/:id/followingsというURL（:idをもつユーザのフォローユーザー一覧が表示）が生成される。
       get :followers#/users/:id/followersというURL（:idをもつユーザのフォロアーユーザー一覧が表示）が生成される。
+      get :likes
     end
     collection do
       get :search
@@ -21,4 +22,5 @@ Rails.application.routes.draw do
   
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]#ログインユーザーがユーザをフォロー／アンフォロー出来るルーティング
+  resources :fevorites, only: [:create, :destroy]
 end
