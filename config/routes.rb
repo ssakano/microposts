@@ -15,9 +15,9 @@ Rails.application.routes.draw do
       get :followers#/users/:id/followersというURL（:idをもつユーザのフォロアーユーザー一覧が表示）が生成される。
       get :likes
     end
-    collection do
-      get :search
-    end
+    # collection do
+    #   get :search
+    # end
   end
   
   resources :microposts, only: [:create, :destroy]
